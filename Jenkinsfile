@@ -1,10 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('pre-build') {
       steps {
-        sh '''mvn clean install -U
-'''
+        echo 'starting to build the application'
+      }
+    }
+
+    stage('build') {
+      steps {
+        echo 'build'
+        git(url: 'git@github.com:AkshaySh007/blog.git', branch: 'main')
       }
     }
 
